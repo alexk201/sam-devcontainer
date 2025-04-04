@@ -19,7 +19,8 @@ apt update && apt install -y --no-install-recommends \
     ros-jazzy-topic-tools \
     ros-jazzy-foxglove-bridge \
     ros-jazzy-diagnostic-updater \
-    python3-colcon-ros
+    python3-colcon-ros \
+    python3-colcon-common-extensions
 
 # configure exports for interactive terminal
 echo "export ROS_INSTALL_PATH=/opt/ros/jazzy" >> /etc/bash.bashrc
