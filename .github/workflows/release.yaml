@@ -2,7 +2,7 @@ name: "release dev container features"
 on:
   push:
     branches:
-      - release
+      - main
 
 jobs:
   deploy:
