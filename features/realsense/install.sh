@@ -12,6 +12,4 @@ mkdir -p /etc/apt/keyrings
 wget -q https://librealsense.intel.com/Debian/librealsense.pgp -O /etc/apt/keyrings/librealsense.pgp
 echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo jammy main" > /etc/apt/sources.list.d/librealsense.list
 apt-get update && apt install -y --no-install-recommends \
-    librealsense2-dkms \
-    librealsense2-utils \
     librealsense2-dev

@@ -1,11 +1,12 @@
-name: "release dev container features"
+name: "features"
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  deploy:
+  release-features:
     runs-on: ubuntu-latest
     permissions:
       packages: write

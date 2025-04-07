@@ -1,4 +1,11 @@
 {
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
-    "postCreateCommand": "npm install -g @devcontainers/cli"
+    "postCreateCommand": "npm install -g @devcontainers/cli",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.vscode-yaml"
+            ]
+        }
+    }
 }
