@@ -18,7 +18,7 @@ ADJUSTED_VERSION_ID="$(echo -n $VERSION_ID | tr -d ".")"
 mkdir -p /etc/apt/keyrings
 wget -q https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${ADJUSTED_VERSION_ID}/${ADJUSTED_ARCH}/3bf863cc.pub -O /etc/apt/keyrings/nvidia.asc
 echo "deb [signed-by=/etc/apt/keyrings/nvidia.asc] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${ADJUSTED_VERSION_ID}/${ADJUSTED_ARCH} /" > /etc/apt/sources.list.d/nvidia.list
-apt update && apt install -y --no-install-recommends \
+apt-get update && apt-get install -y --no-install-recommends \
     cuda-12-8 \
     cuda-libraries-dev-12-8 \
     libnvinfer-dev \

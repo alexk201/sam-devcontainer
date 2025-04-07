@@ -14,7 +14,7 @@ wget -q https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc -O /etc/a
 echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://ftp.osuosl.org/pub/ros2 jammy main" > /etc/apt/sources.list.d/ros.list
 
 # install required packages
-apt update && apt install -y --no-install-recommends \
+apt-get update && apt-get install -y --no-install-recommends \
     ros-jazzy-desktop \
     ros-jazzy-topic-tools \
     ros-jazzy-foxglove-bridge \
