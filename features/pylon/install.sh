@@ -9,6 +9,7 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+mkdir -p /etc/apt/keyrings
 cat >/etc/apt/keyrings/ros.asc <<EOL
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -53,5 +54,5 @@ XoLpl3lni/ngG0GXBKzKQUkIUQbsxtsF9CD3VJXjsV74cbhzxszh77Yly+K8VNsE
 -----END PGP PUBLIC KEY BLOCK-----
 EOL
 
-echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb noble main" > /etc/apt/sources.list.d/ros.list
+echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb jammy main" > /etc/apt/sources.list.d/ros.list
 apt update && apt install -y --no-install-recommends pylon
