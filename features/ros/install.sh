@@ -11,7 +11,7 @@ fi
 
 # add ros repository
 wget -q https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc -O /etc/apt/keyrings/ros.asc
-echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://ftp.osuosl.org/pub/ros2 jammy main" > /etc/apt/sources.list.d/ros.list
+echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://ftp.osuosl.org/pub/ros2 noble main" > /etc/apt/sources.list.d/ros.list
 
 # install required packages
 apt-get update && apt-get install -y --no-install-recommends \
