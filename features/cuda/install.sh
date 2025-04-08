@@ -9,11 +9,10 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# source os-relase information
-. /etc/os-release
-
 ADJUSTED_ARCH="$(arch | sed 's/aarch64/arm64/g')"
-ADJUSTED_VERSION_ID="$(echo -n $VERSION_ID | tr -d ".")"
+ADJUSTED_VERSION_ID=2204
+# use fixed version because the newer repositories are missing packages
+# ADJUSTED_VERSION_ID="$(echo -n $VERSION_ID | tr -d ".")"
 
 mkdir -p /etc/apt/keyrings
 wget -q https://developer.download.nvidia.com/compute/cuda/repos/ubuntu${ADJUSTED_VERSION_ID}/${ADJUSTED_ARCH}/3bf863cc.pub -O /etc/apt/keyrings/nvidia.asc
