@@ -15,6 +15,7 @@ echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://ftp.osuosl.org/pub/ros2 
 
 # install required packages
 apt-get update && apt-get install -y --no-install-recommends \
+    locales \
     ros-jazzy-desktop \
     ros-jazzy-topic-tools \
     ros-jazzy-foxglove-bridge \
@@ -27,8 +28,9 @@ apt-get update && apt-get install -y --no-install-recommends \
 # configure exports for interactive terminal
 echo "source /opt/ros/jazzy/setup.bash" >> /etc/bash.bashrc
 
+# configure recommended locales
+locale-gen en_US.UTF-8
+update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
 rosdep init
 rosdep update
-
-# maybe we can automate installing all required dependencies using literally one command...
-# rosdep install --from-paths src --ignore-src -r -y
