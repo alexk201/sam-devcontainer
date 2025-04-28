@@ -1,6 +1,6 @@
 {
     "id": "caret",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "caret",
     "description": "CARET (Chain-Aware ROS Evaluation Tool) is a performance analysis tool for ROS 2 applications that measures callback, communication, and path (chain) latency with enhanced tracing resolution via function hooks",
     "options": {

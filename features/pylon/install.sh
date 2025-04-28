@@ -54,5 +54,5 @@ XoLpl3lni/ngG0GXBKzKQUkIUQbsxtsF9CD3VJXjsV74cbhzxszh77Yly+K8VNsE
 -----END PGP PUBLIC KEY BLOCK-----
 EOL
 
-echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb noble main" > /etc/apt/sources.list.d/ros.list
+echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb jammy main" > /etc/apt/sources.list.d/ros.list
 apt-get update && apt-get install -y --no-install-recommends pylon
