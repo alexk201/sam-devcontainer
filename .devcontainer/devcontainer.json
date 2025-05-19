@@ -1,0 +1,14 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18",
+    "postCreateCommand": "npm install -g @devcontainers/cli",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "redhat.vscode-yaml"
+            ]
+        }
+    }
+}

@@ -1,0 +1,1 @@
+the `prebuild` devcontainer uses the standard environemnt configuration to build images for `amd64` and `arm64` to reduce setup time on the client side.
