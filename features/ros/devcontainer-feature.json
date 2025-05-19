@@ -1,8 +1,5 @@
 {
     "id": "ros",
-    "version": "1.0.2",
-    "name": "Robot Operating System (ROS)",
-    "containerEnv": {
-        "ROS_INSTALL_PATH": "/opt/ros/humble"
-    }
+    "version": "1.0.0",
+    "name": "Robot Operating System (ROS)"
 }
