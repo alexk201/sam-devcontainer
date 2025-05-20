@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
-
-# configure bash defaults: exit on any failure
 set -e
 
+# Ensure script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-    echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+    echo 'Error: Run this script as root (sudo or USER root in Dockerfile).'
     exit 1
 fi
 
-mkdir -p /etc/apt/keyrings
+install -d -m 0755 /etc/apt/keyrings
 wget -q https://librealsense.intel.com/Debian/librealsense.pgp -O /etc/apt/keyrings/librealsense.pgp
-echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo jammy main" > /etc/apt/sources.list.d/librealsense.list
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" > /etc/apt/sources.list.d/librealsense.list
+
 apt-get update && apt-get install -y --no-install-recommends \
     librealsense2-dev \
-    librealsense2-dkms \
-    librealsense2-utils \
-    librealsense2-dbg
+    librealsense2-dbg \
+    librealsense2-utils
+
+# Cleanup
+apt-get clean
+rm -rf /var/lib/apt/lists/*
