@@ -1,13 +1,56 @@
 # sam-devcontainer
 
-## build
+A curated collection of devcontainer features used by **SAM ROS 2**.  
+Features are organized under the `features/` directory, and prebuilt configurations are stored in the `prebuild/` directory.
 
-### manual
+Each feature is self-contained and includes detailed documentation within its respective folder.
 
-```shell
-# amd64
-devcontainer build --workspace-folder prebuild --image-name ghcr.io/alexk201/sam-devcontainer:latest --platform linux/amd64 --cache-from ghcr.io/alexk201/sam-devcontainer
+---
 
-# arm64
-devcontainer build --workspace-folder prebuild --image-name ghcr.io/alexk201/sam-devcontainer:latest --platform linux/arm64 --cache-from ghcr.io/alexk201/sam-devcontainer
+## 📦 Available Features
+
+| Feature     | Purpose                                  |
+|-------------|-------------------------------------------|
+| `caret`     | Adds [CARET](https://tier4.github.io/caret_doc/main/) tooling for ROS performance analysis |
+| `cuda`      | Installs **CUDA**, **cuDNN**, and **TensorRT** for object detection. Versions are selected for compatibility with **Pascal-based GPUs** (e.g. GTX 1050Ti),  such as those used in the **AADC car** project. |
+| `pylon`     | Adds support for Basler Pylon cameras     |
+| `realsense` | Adds support for Intel RealSense cameras  |
+| `ros`       | Automatically installs ROS 2 based on Ubuntu version |
+| `utility`   | Container utilities for updating system components during build |
+
+⚠️ Currently, these features only support **Debian-based** distributions via `apt`.
+
+---
+
+## 🔧 Build
+
+The build process is automated using a GitLab CI pipeline, but you can also build manually:
+
+### 🛠️ Manual Build
+
+```bash
+# For amd64
+devcontainer build \
+  --workspace-folder prebuild \
+  --image-name sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer \
+  --platform linux/amd64
+
+# For arm64
+devcontainer build \
+  --workspace-folder prebuild \
+  --image-name sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer \
+  --platform linux/arm64
+````
+
+---
+
+## 🚀 Publish Features
+
+```bash
+docker login sam-dev.cs.hm.edu:5023 -u sam-devcontainer -p <redacted>
+
+devcontainer features publish \
+  -r sam-dev.cs.hm.edu:5023 \
+  -n sam-dev/sam-devcontainer \
+  features
 ```
