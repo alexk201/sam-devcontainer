@@ -53,3 +53,7 @@ echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /etc/bash.bashrc
 # Generate and set recommended locales
 locale-gen en_US.UTF-8
 update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+
+# Cleanup
+apt-get clean
+rm -rf /var/lib/apt/lists/*

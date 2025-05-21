@@ -55,3 +55,7 @@ EOL
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/pylon.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb $(lsb_release -cs) main" > /etc/apt/sources.list.d/pylon.list
 apt-get update && apt-get install -y --no-install-recommends pylon
+
+# Cleanup
+apt-get clean
+rm -rf /var/lib/apt/lists/*
