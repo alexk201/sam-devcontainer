@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
-
-# configure bash defaults: exit on any failure
 set -e
 
-# check permissions
+# Ensure script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-    echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+    echo 'Error: Run this script as root (sudo or USER root in Dockerfile).'
     exit 1
 fi
 
-mkdir -p /etc/apt/keyrings
-cat >/etc/apt/keyrings/ros.asc <<EOL
+# Add Pylon repository key and source list
+install -d -m 0755 /etc/apt/keyrings
+cat >/etc/apt/keyrings/pylon.asc <<EOL
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQGNBGfvEMYBDADXLeaQNDujoqQZHY6I8nZaD77OfvfZ71oUcha2NrUFC2/t3AAx
@@ -54,5 +53,5 @@ XoLpl3lni/ngG0GXBKzKQUkIUQbsxtsF9CD3VJXjsV74cbhzxszh77Yly+K8VNsE
 -----END PGP PUBLIC KEY BLOCK-----
 EOL
 
-echo "deb [signed-by=/etc/apt/keyrings/ros.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb jammy main" > /etc/apt/sources.list.d/ros.list
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/pylon.asc] https://nexus.apps.code-forge.eu/repository/apt-baslerweb $(lsb_release -cs) main" > /etc/apt/sources.list.d/pylon.list
 apt-get update && apt-get install -y --no-install-recommends pylon
