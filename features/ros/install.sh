@@ -41,6 +41,7 @@ apt-get update && apt-get install -y --no-install-recommends \
     ros-$ROS_DISTRO-foxglove-bridge \
     ros-$ROS_DISTRO-diagnostic-updater \
     ros-$ROS_DISTRO-camera-calibration-parsers \
+    python3-pip \
     python3-rosdep \
     python3-vcstool \
     python3-colcon-ros \
