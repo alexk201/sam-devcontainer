@@ -5,6 +5,7 @@ set -e
 declare -A ROS_MAP=(
     [jammy]="humble"
     [noble]="jazzy"
+    # [noble]="kilted" - latest release from may 2025, also built for ubuntu 2404. still under development
 )
 
 # Ensure script is run as root
@@ -40,6 +41,7 @@ apt-get update && apt-get install -y --no-install-recommends \
     ros-$ROS_DISTRO-topic-tools \
     ros-$ROS_DISTRO-foxglove-bridge \
     ros-$ROS_DISTRO-diagnostic-updater \
+    ros-$ROS_DISTRO-ament-clang-format \
     ros-$ROS_DISTRO-camera-calibration-parsers \
     python3-pip \
     python3-rosdep \
