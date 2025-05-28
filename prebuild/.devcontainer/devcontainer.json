@@ -1,8 +1,7 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
+    "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-24.04",
     "features": {
-        "ghcr.io/alexk201/sam-devcontainer/ros:latest": {},
-        "ghcr.io/alexk201/sam-devcontainer/cuda:latest": {},
-        "ghcr.io/alexk201/sam-devcontainer/pylon:latest": {}
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros:latest": {},
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/pylon:latest": {}
     }
 }

@@ -10,6 +10,6 @@
         }
     },
     "installsAfter": [
-        "ghcr.io/alexk201/sam-devcontainer/ros"
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros"
     ]
 }
