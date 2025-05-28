@@ -9,7 +9,7 @@ release_features:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       changes:
-        - features/**
+        - features/**/*
         - .gitlab-ci.yml
     - when: never
   variables:
