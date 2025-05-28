@@ -1,10 +1,15 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
 # Ensure script is run as root
 if [ "$(id -u)" -ne 0 ]; then
     echo 'Error: Run this script as root (sudo or USER root in Dockerfile).'
     exit 1
+fi
+
+# Source the ros-env.sh to get ROS_DISTRO and setup bash
+if [ -f /etc/profile.d/ros-env.sh ]; then
+    source /etc/profile.d/ros-env.sh
 fi
 
 # Ensure ROS is installed and ROS_DISTRO is set
