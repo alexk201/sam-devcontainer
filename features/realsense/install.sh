@@ -7,14 +7,15 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-install -d -m 0755 /etc/apt/keyrings
-wget -q https://librealsense.intel.com/Debian/librealsense.pgp -O /etc/apt/keyrings/librealsense.pgp
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" > /etc/apt/sources.list.d/librealsense.list
+# Ensure ROS is installed and ROS_DISTRO is set
+if [[ -z "${ROS_DISTRO:-}" ]]; then
+    echo "Error: ROS is not detected. Please install ROS and ensure ROS_DISTRO is set." >&2
+    exit 1
+fi
 
 apt-get update && apt-get install -y --no-install-recommends \
-    librealsense2-dev \
-    librealsense2-dbg \
-    librealsense2-utils
+    ros-$ROS_DISTRO-realsense2-camera \
+    ros-$ROS_DISTRO-realsense2-camera-msgs
 
 # Cleanup
 apt-get clean
