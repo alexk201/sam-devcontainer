@@ -1,7 +1,9 @@
 {
     "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-24.04",
     "features": {
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros:latest": {},
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros:latest": {
+            "distro": "jazzy"
+        },
         "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/pylon:latest": {}
     }
 }

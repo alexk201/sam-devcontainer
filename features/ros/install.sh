@@ -1,12 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
-# Map Ubuntu codenames to ROS distros (add future releases here)
-declare -A ROS_MAP=(
-    [jammy]="humble"
-    [noble]="jazzy"
-    # [noble]="kilted" - latest release from may 2025, also built for ubuntu 2404. still under development
-)
+ROS_DISTRO=${DISTRO}
 
 # Ensure script is run as root
 if [ "$(id -u)" -ne 0 ]; then
@@ -14,24 +9,10 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-ARCH=$(dpkg --print-architecture)
-CODENAME=$(. /etc/os-release && echo $UBUNTU_CODENAME)
-
-if [ -z "$CODENAME" ]; then
-    echo "Error: UBUNTU_CODENAME not found. Run on a supported Ubuntu system."
-    exit 1
-fi
-
-ROS_DISTRO=${ROS_MAP[$CODENAME]}
-if [ -z "$ROS_DISTRO" ]; then
-    echo "Error: Unsupported Ubuntu codename '$CODENAME'. Supported: ${!ROS_MAP[@]}"
-    exit 1
-fi
-
 # Add ROS repository key and source list
 install -d -m 0755 /etc/apt/keyrings
 wget -q https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc -O /etc/apt/keyrings/ros.asc
-echo "deb [arch=$ARCH signed-by=/etc/apt/keyrings/ros.asc] https://ftp.osuosl.org/pub/ros2 $CODENAME main" > /etc/apt/sources.list.d/ros.list
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/ros.asc] https://ftp.osuosl.org/pub/ros2 $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros.list
 
 # Install ROS and essential tools
 apt-get update && apt-get install -y --no-install-recommends \
@@ -49,9 +30,11 @@ apt-get update && apt-get install -y --no-install-recommends \
     python3-colcon-ros \
     python3-colcon-common-extensions
 
-# Set environment variables for all users
-echo "export ROS_INSTALL_PATH=/opt/ros/$ROS_DISTRO" >> /etc/bash.bashrc
-echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /etc/bash.bashrc
+# Set environment variables for all shells
+cat << EOF > /etc/profile.d/ros-env.sh
+export ROS_INSTALL_PATH=/opt/ros/$ROS_DISTRO
+source /opt/ros/$ROS_DISTRO/setup.bash
+EOF
 
 # Generate and set recommended locales
 locale-gen en_US.UTF-8
