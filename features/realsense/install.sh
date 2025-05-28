@@ -9,7 +9,7 @@ fi
 
 # Source the ros-env.sh to get ROS_DISTRO and setup bash
 if [ -f /etc/profile.d/ros-env.sh ]; then
-    source /etc/profile.d/ros-env.sh
+    . /etc/profile.d/ros-env.sh
 fi
 
 # Ensure ROS is installed and ROS_DISTRO is set
