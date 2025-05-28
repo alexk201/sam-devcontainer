@@ -13,7 +13,7 @@ if [ -f /etc/profile.d/ros-env.sh ]; then
 fi
 
 # Ensure ROS is installed and ROS_DISTRO is set
-if [[ -z "${ROS_DISTRO:-}" ]]; then
+if [ -z "${ROS_DISTRO:-}" ]; then
     echo "Error: ROS is not detected. Please install ROS and ensure ROS_DISTRO is set." >&2
     exit 1
 fi

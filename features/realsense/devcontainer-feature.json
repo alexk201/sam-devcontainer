@@ -1,6 +1,6 @@
 {
     "id": "realsense",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "realsense",
     "description": "Installs libraries and dependencies for Intel RealSense depth cameras.",
     "installsAfter": [
