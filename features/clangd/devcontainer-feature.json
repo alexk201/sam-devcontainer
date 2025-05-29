@@ -1,0 +1,5 @@
+{
+    "id": "clangd",
+    "version": "1.0.0",
+    "name": "clangd language server"
+}
