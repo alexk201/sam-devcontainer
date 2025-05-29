@@ -20,15 +20,19 @@ apt-get update && apt-get install -y --no-install-recommends \
     ros-dev-tools \
     ros-$ROS_DISTRO-desktop \
     ros-$ROS_DISTRO-topic-tools \
+    ros-$ROS_DISTRO-foxglove-msgs \
     ros-$ROS_DISTRO-foxglove-bridge \
     ros-$ROS_DISTRO-diagnostic-updater \
     ros-$ROS_DISTRO-ament-clang-format \
     ros-$ROS_DISTRO-camera-calibration-parsers \
     python3-pip \
+    python3-serial \
     python3-rosdep \
     python3-vcstool \
     python3-colcon-ros \
-    python3-colcon-common-extensions
+    python3-colcon-common-extensions \
+    libcjson-dev \
+    libopencv-dev
 
 # Set environment variables for all shells
 cat << EOF > /etc/profile.d/ros-env.sh
