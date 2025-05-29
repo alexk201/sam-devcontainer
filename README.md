@@ -5,6 +5,10 @@ Features are organized under the `features/` directory, and prebuilt configurati
 
 Each feature is self-contained and includes detailed documentation within its respective folder.
 
+⚠️ **Important:**
+When updating a feature, **always increment its version number**, ideally following [Semantic Versioning (SemVer)](https://semver.org/). The DevContainer CLI skips publishing if a version tag already exists.
+Re-publishing an existing version requires manually deleting the tag from the container registry which is strongly discouraged.
+
 ---
 
 ## 📦 Available Features
@@ -12,6 +16,7 @@ Each feature is self-contained and includes detailed documentation within its re
 | Feature     | Purpose                                  |
 |-------------|-------------------------------------------|
 | `caret`     | Adds [CARET](https://tier4.github.io/caret_doc/main/) tooling for ROS performance analysis |
+| `clangd`    | Installs the **clangd** language server for enhanced C/C++ code completion, navigation, and diagnostics |
 | `cuda`      | Installs **CUDA**, **cuDNN**, and **TensorRT** for object detection. Versions are selected for compatibility with **Pascal-based GPUs** (e.g. GTX 1050Ti),  such as those used in the **AADC car** project. |
 | `pylon`     | Adds support for Basler Pylon cameras     |
 | `realsense` | Adds support for Intel RealSense cameras  |
@@ -48,6 +53,8 @@ devcontainer build \
 
 ```bash
 docker login sam-dev.cs.hm.edu:5023 -u sam-devcontainer -p <redacted>
+# or
+export DEVCONTAINERS_OCI_AUTH="sam-dev.cs.hm.edu:5023|sam-devcontainer|<redacted>"
 
 devcontainer features publish \
   -r sam-dev.cs.hm.edu:5023 \
