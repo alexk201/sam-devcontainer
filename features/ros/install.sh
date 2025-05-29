@@ -33,7 +33,7 @@ apt-get update && apt-get install -y --no-install-recommends \
 # Set environment variables for all shells
 cat << EOF > /etc/profile.d/ros-env.sh
 export ROS_INSTALL_PATH=/opt/ros/$ROS_DISTRO
-. /opt/ros/$ROS_DISTRO/setup.bash
+. /opt/ros/$ROS_DISTRO/setup.sh
 EOF
 
 # Generate and set recommended locales

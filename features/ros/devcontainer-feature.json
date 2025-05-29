@@ -1,6 +1,6 @@
 {
     "id": "ros",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "Robot Operating System (ROS)",
     "options": {
         "distro": {
