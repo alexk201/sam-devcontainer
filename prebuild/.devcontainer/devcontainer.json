@@ -1,6 +1,7 @@
 {
     "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-24.04",
     "features": {
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/clangd:latest": {},
         "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros:latest": {
             "distro": "jazzy"
         },
