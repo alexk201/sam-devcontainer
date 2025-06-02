@@ -32,7 +32,8 @@ apt-get update && apt-get install -y --no-install-recommends \
     python3-colcon-ros \
     python3-colcon-common-extensions \
     libcjson-dev \
-    libopencv-dev
+    libopencv-dev \
+    libbluetooth-dev
 
 # Set environment variables for all shells
 cat << EOF > /etc/profile.d/ros-env.sh
