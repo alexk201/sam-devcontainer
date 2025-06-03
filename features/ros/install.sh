@@ -27,6 +27,7 @@ apt-get update && apt-get install -y --no-install-recommends \
     ros-$ROS_DISTRO-ament-clang-format \
     ros-$ROS_DISTRO-camera-calibration-parsers \
     python3-pip \
+    python3-venv \
     python3-serial \
     python3-rosdep \
     python3-vcstool \
