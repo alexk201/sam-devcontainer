@@ -17,6 +17,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/ros.asc
 # Install ROS and essential tools
 apt-get update && apt-get install -y --no-install-recommends \
     locales \
+    git-lfs \
     ros-dev-tools \
     ros-$ROS_DISTRO-desktop \
     ros-$ROS_DISTRO-topic-tools \
