@@ -16,4 +16,4 @@ release_features:
     DEVCONTAINERS_OCI_AUTH: "${CI_REGISTRY}|gitlab-ci-token|${CI_JOB_TOKEN}"
   script:
     - npm install -g @devcontainers/cli
-    - devcontainer features publish -r ${CI_REGISTRY} -n ${CI_PROJECT_PATH} "${CI_PROJECT_DIR}/features"
+    - devcontainer features publish -r ${CI_REGISTRY} -n ${CI_PROJECT_PATH}/features "${CI_PROJECT_DIR}/features"
