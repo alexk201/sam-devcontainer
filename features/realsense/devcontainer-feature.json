@@ -1,9 +1,9 @@
 {
     "id": "realsense",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "name": "realsense",
     "description": "Installs libraries and dependencies for Intel RealSense depth cameras.",
     "installsAfter": [
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros"
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/ros"
     ]
 }
