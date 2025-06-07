@@ -34,17 +34,29 @@ The build process is automated using a GitLab CI pipeline, but you can also buil
 ### 🛠️ Manual Build
 
 ```bash
-# For amd64
+# publish to sam-devcontainer
+CI_REGISTRY_IMAGE=sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer
+
+# publish to ros2/sam-devcontainer (main repo)
+CI_REGISTRY_IMAGE=sam-dev.cs.hm.edu:5023/sam-dev/ros2/sam-devcontainer
+
+# for amd64
 devcontainer build \
   --workspace-folder prebuild \
-  --image-name sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer \
+  --image-name $CI_REGISTRY_IMAGE:amd64 \
   --platform linux/amd64
 
-# For arm64
+# for arm64
 devcontainer build \
   --workspace-folder prebuild \
-  --image-name sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer \
+  --image-name $CI_REGISTRY_IMAGE:arm64 \
   --platform linux/arm64
+
+# manually create one "latest" manifest that refereces both images
+docker manifest create $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:amd64 $CI_REGISTRY_IMAGE:arm64
+docker manifest annotate $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:amd64 --os linux --arch amd64
+docker manifest annotate $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:arm64 --os linux --arch arm64
+docker manifest push $CI_REGISTRY_IMAGE:latest
 ````
 
 ---
