@@ -58,6 +58,6 @@ export DEVCONTAINERS_OCI_AUTH="sam-dev.cs.hm.edu:5023|sam-devcontainer|<redacted
 
 devcontainer features publish \
   -r sam-dev.cs.hm.edu:5023 \
-  -n sam-dev/sam-devcontainer \
+  -n sam-dev/sam-devcontainer/features \
   features
 ```

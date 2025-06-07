@@ -1,10 +1,10 @@
 {
     "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
     "features": {
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/clangd:latest": {},
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/ros:latest": {
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/clangd:latest": {},
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/ros:latest": {
             "distro": "humble"
         },
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/pylon:latest": {}
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/pylon:latest": {}
     }
 }
