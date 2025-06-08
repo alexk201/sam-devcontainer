@@ -53,6 +53,7 @@ devcontainer build \
   --platform linux/arm64
 
 # manually create one "latest" manifest that refereces both images
+docker manifest rm $CI_REGISTRY_IMAGE:latest
 docker manifest create $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:amd64 $CI_REGISTRY_IMAGE:arm64
 docker manifest annotate $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:amd64 --os linux --arch amd64
 docker manifest annotate $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:arm64 --os linux --arch arm64
