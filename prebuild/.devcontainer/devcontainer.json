@@ -1,11 +1,13 @@
 {
     "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
     "features": {
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/clangd:latest": {},
         "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/ros:latest": {
             "distro": "humble"
         },
         "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/pylon:latest": {},
-        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/realsense:latest": {}
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/clangd:latest": {},
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/realsense:latest": {},
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/cuda-runtime:latest": {},
+        "sam-dev.cs.hm.edu:5023/sam-dev/sam-devcontainer/features/onnx-runtime:latest": {}
     }
 }

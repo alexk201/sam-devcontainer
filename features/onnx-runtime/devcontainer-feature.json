@@ -1,0 +1,18 @@
+{
+    "id": "onnx-runtime",
+    "version": "1.0.0",
+    "name": "ONNX Runtime",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "1.22.0",
+            "proposals": [
+                "1.22.0",
+                "1.21.0"
+            ]
+        }
+    },
+    "containerEnv": {
+        "LD_LIBRARY_PATH": "/opt/onnxruntime/lib:$LD_LIBRARY_PATH"
+    }
+}
