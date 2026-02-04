@@ -9,6 +9,8 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+apt-get update && apt-get install -y --no-install-recommends wget lsb-release
+
 # Add ROS repository key and source list
 install -d -m 0755 /etc/apt/keyrings
 wget -q https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc -O /etc/apt/keyrings/ros.asc
