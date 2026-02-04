@@ -1,6 +1,0 @@
-{
-    "id": "realsense",
-    "version": "1.0.5",
-    "name": "realsense",
-    "description": "Installs libraries and dependencies for Intel RealSense depth cameras."
-}
